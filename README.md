@@ -348,10 +348,10 @@ fields @timestamp, @message
 
 Com grandes poderes, grandes responsabilidades...  
 
-### Leitura adicional:  
-[https://docs.aws.amazon.com/waf/latest/developerguide](https://docs.aws.amazon.com/waf/latest/developerguide) 
-[https://aws.amazon.com/waf/features/](https://aws.amazon.com/waf/features/) 
-[https://aws.amazon.com/waf/pricing/](https://aws.amazon.com/waf/pricing/) 
-[https://aws.amazon.com/waf/faqs/](https://aws.amazon.com/waf/faqs/) 
+### Leitura adicional:    
+[https://docs.aws.amazon.com/waf/latest/developerguide](https://docs.aws.amazon.com/waf/latest/developerguide)   
+[https://aws.amazon.com/waf/features/](https://aws.amazon.com/waf/features/)   
+[https://aws.amazon.com/waf/pricing/](https://aws.amazon.com/waf/pricing/)   
+[https://aws.amazon.com/waf/faqs/](https://aws.amazon.com/waf/faqs/)   
 
 
