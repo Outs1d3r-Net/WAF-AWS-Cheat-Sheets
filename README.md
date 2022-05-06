@@ -270,12 +270,12 @@ Sempre procurarei atualiza-los com o tempo.
 + ### TOP 10 IP's:  
 Podemos obter um TOP 10 dos IPs que estão acessando seu site com a query abaixo:  
 ```
-"fields @timestamp, @message
+fields @timestamp, @message
 | filter webaclId = ""arn:aws:wafv2:us-east-1:<anonymized>:regional/webacl/<anonymized>/<anonymized>-0f62-<anonymized>-8f8d-<anonymized>""
 | parse @message '{""name"":""X-Forwarded-For"",""value"":""*""}' as IPfinal
 | stats count(*) as requestCount by IPfinal
 | sort requestCount desc 
-| limit 10"
+| limit 10
 ```  
 Também conseguimos realizar isso com a variavel ```httpRequest.clientIp``` da seguinte forma:  
 ```
