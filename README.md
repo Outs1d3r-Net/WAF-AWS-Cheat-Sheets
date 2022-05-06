@@ -1,5 +1,5 @@
 # AWS WAF - Cheat Sheet  
-[![Banner](https://res.cloudinary.com/hy4kyit2a/f_auto,fl_lossy,q_70/learn/modules/aws-cloud-security/learn-about-aws-security-services/images/8d03a75da1004ae7489a19260cb70889_84-e-710-e-4-cd-3-b-4301-9744-07-fcc-43-b-059-a.png)](waf)  
+[![Banner](https://res.cloudinary.com/hy4kyit2a/f_auto,fl_lossy,q_70/learn/modules/aws-cloud-security/learn-about-aws-security-services/images/8d03a75da1004ae7489a19260cb70889_84-e-710-e-4-cd-3-b-4301-9744-07-fcc-43-b-059-a.png#center =500x)](waf)
 #  
 :metal: :smile:  
 #
@@ -14,17 +14,17 @@ Você encontrará um guia técnico do recurso [aqui.](https://docs.aws.amazon.co
 #### O WaF da AWS  
 O WaF da AWS conta com algumas funções de pesquisa quando analisado pelo cloudwatch, acesse o Cloudwatch na AWS e selecione: ```Logs Insights``` no canto esquerdo:  
 #  
-[![Console Cloudwatch](img/00.png)]()  
+[![Console Cloudwatch](img/00.png#center)]()  
 #  
 
 A tela do console de pesquisa do CloudWatch se abrirá:  
 #  
-[![Console Cloudwatch](img/01.png)]()  
+[![Console Cloudwatch](img/01.png#center)]()  
 #  
 
 No CloudWatch, selecione a(s) trilha(s) que você deseja:  
 #  
-[![Trilhas do waf no cloudwatch](img/02.png)]()  
+[![Trilhas do waf no cloudwatch](img/02.png#center)]()  
 #  
 
 ## Operadores  
@@ -179,7 +179,7 @@ Einstein@BlackHole:/tmp# cat out|jq
   }
 }
 ```  
-Voce pode encontrar campos diferentes me solicitações diferentes.  
+Voce pode encontrar campos diferentes em solicitações diferentes.  
 O operador ```parse``` nos da a possibilidade de realizar pesquisa nesses campos:  
 ```
 fields @timestamp, @message
@@ -216,7 +216,7 @@ fields @timestamp, @message
 ```  
 #  
 + ### stats:  
-O operador ```stats``` realiza uma analise statistica, abaixo estamos definindo um ```count``` no campo ```requestCount``` das solicitações:  
+O operador ```stats``` realiza uma analise statistica. Abaixo estamos definindo um ```count``` no campo ```requestCount``` das solicitações:  
 ```
 fields @timestamp, @message
 | parse @message '{"name":"user-agent","value":"*"}' as UA
@@ -245,7 +245,7 @@ fields @timestamp, @message
 ```  
 Veja a imagem abaixo:  
 # 
-[![Console Cloudwatch](img/03.png)]()  
+[![Console Cloudwatch](img/03.png#center)]()  
 # 
 
 Para obter uma visão mais detalhada, seria bom se pudéssemos adicionar o IP para diferenciar os UA's repetidos:  
@@ -258,14 +258,14 @@ fields @timestamp, @message
 ```  
 Veja a imagem abaixo:  
 #  
-[![Console Cloudwatch](img/04.png)]()  
+[![Console Cloudwatch](img/04.png#center)]()  
 #  
 OBS: Diminuimos o tempo de consulta para 5 minutos para obter uma melhor visualização.  
 
 ## Templates de consultas  
-No WAF da AWS os operadores nos ajudaram a criar consultar mais afinadas para que possamos ter visibilidade dos dados que desejamos.  
-# 
-Neste sessão vou disponibilizar alguns modelos de consultas, algumas que eu mesmo ja utilizei ou utilizo.  
+Nesta sessão vou disponibilizar alguns modelos de consultas, algumas que eu mesmo ja utilizei ou utilizo.  
+Sempre procurarei atualiza-los com o tempo.  
+#  
 
 + ### TOP 10 IP's:  
 Podemos obter um TOP 10 dos IPs que estão acessando seu site com a query abaixo:  
@@ -287,7 +287,7 @@ fields @timestamp, @message
 ```  
 Veja a imagem abaixo:  
 # 
-[![Console Cloudwatch](img/05.png)]()  
+[![Console Cloudwatch](img/05.png#center)]()  
 #  
 + ### Encontrando STRINGS especificas:  
 Utilizando combinações com o operador ```filter``` e ```like``` conseguimos buscar STRINGS especificas, isso é util quando temos alguns dados chaves de um incidente:  
@@ -299,7 +299,7 @@ fields @timestamp, @message
 ```  
 Veja a imagem abaixo:  
 # 
-[![Console Cloudwatch](img/06.png)]()  
+[![Console Cloudwatch](img/06.png#center)]()  
 OBS: No print acima eu adicionei os campos ```httpRequest.headers.1.value``` e ```httpRequest.clientIp``` para melhorar a visualização dos resultados.  
 #  
 * ### Obtenha dados da web de um determinado IP:  
@@ -313,7 +313,7 @@ fields @timestamp, @message
 ```  
 Veja a imagem abaixo:  
 # 
-[![Console Cloudwatch](img/07.png)]()  
+[![Console Cloudwatch](img/07.png#center)]()  
 # 
 Vamos falar sobre as variaveis acima:  
 + #### httpRequest.clientIp:  
