@@ -7,19 +7,25 @@
 ## Introdução  
 Este guia foi desenvolvido para ser um guia rápido para iniciantes no WAF da AWS.  
 
-Ele contem informações para você criar filtros e ter visibilidade do trafego da WEB que chega ate os seus sistemas que passam pelo WAF & Shield.    
+Ele contem informações para você criar filtros e ter visibilidade do trafego da WEB que chega ate os seus sistemas que passam pelo WAF & Shield.  
 
 Você encontrará um guia técnico do recurso [aqui.](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html)  
 
 #### O WaF da AWS  
 O WaF da AWS conta com algumas funções de pesquisa quando analisado pelo cloudwatch, acesse o Cloudwatch na AWS e selecione: ```Logs Insights``` no canto esquerdo:  
+#  
 [![Console Cloudwatch](img/00.png)]()  
+#  
 
 A tela do console de pesquisa do CloudWatch se abrirá:  
+#  
 [![Console Cloudwatch](img/01.png)]()  
+#  
 
 No CloudWatch, selecione a(s) trilha(s) que você deseja:  
+#  
 [![Trilhas do waf no cloudwatch](img/02.png)]()  
+#  
 
 ## Operadores  
 No WAF da AWS os operadores nos ajudaram a criar consultar mais afinadas para que possamos ter visibilidade dos dados que desejamos.  
@@ -238,7 +244,9 @@ fields @timestamp, @message
 | limit 10
 ```  
 Veja a imagem abaixo:  
+# 
 [![Console Cloudwatch](img/03.png)]()  
+# 
 
 Para obter uma visão mais detalhada, seria bom se pudéssemos adicionar o IP para diferenciar os UA's repetidos:  
 ```
@@ -249,7 +257,9 @@ fields @timestamp, @message
 | limit 10
 ```  
 Veja a imagem abaixo:  
+#  
 [![Console Cloudwatch](img/04.png)]()  
+#  
 OBS: Diminuimos o tempo de consulta para 5 minutos para obter uma melhor visualização.  
 
 ## Templates de consultas  
@@ -276,6 +286,7 @@ fields @timestamp, @message
 | limit 10
 ```  
 Veja a imagem abaixo:  
+# 
 [![Console Cloudwatch](img/05.png)]()  
 #  
 + ### Encontrando STRINGS especificas:  
@@ -287,6 +298,7 @@ fields @timestamp, @message
 | limit 100
 ```  
 Veja a imagem abaixo:  
+# 
 [![Console Cloudwatch](img/06.png)]()  
 OBS: No print acima eu adicionei os campos ```httpRequest.headers.1.value``` e ```httpRequest.clientIp``` para melhorar a visualização dos resultados.  
 #  
@@ -300,7 +312,9 @@ fields @timestamp, @message
 | limit 100
 ```  
 Veja a imagem abaixo:  
+# 
 [![Console Cloudwatch](img/07.png)]()  
+# 
 Vamos falar sobre as variaveis acima:  
 + #### httpRequest.clientIp:  
 Esta retorna o endereço de IP de quem realizou a requisição;  
