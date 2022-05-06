@@ -7,7 +7,7 @@
 ## Introdução  
 Este guia foi desenvolvido para ser um guia rápido para iniciantes no WAF da AWS.  
 
-Ele contem informações para você criar filtros e ter visibilidade do trafego da WEB que chega ate os seus sistemas que passam pelo WAF & Shield.  
+Ele contem informações para você criar filtros e ter visibilidade do trafego da WEB que chega ate os seus sistemas que passam pelo WAF & Shield.    
 
 Você encontrará um guia técnico do recurso [aqui.](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html)  
 
