@@ -12,7 +12,7 @@ Ele contem informações para você criar filtros e ter visibilidade do trafego 
 Você encontrará um guia técnico do recurso [aqui.](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html)  
 
 #### O WaF da AWS  
-O WaF da AWS possui conta com algumas funções de pesquisa quando analisado pelo cloudwatch, acesse o Cloudwatch na AWS e selecione: ```Logs Insights``` no canto esquerdo:  
+O WaF da AWS conta com algumas funções de pesquisa quando analisado pelo cloudwatch, acesse o Cloudwatch na AWS e selecione: ```Logs Insights``` no canto esquerdo:  
 [![Console Cloudwatch](img/00.png)]()  
 
 A tela do console de pesquisa do CloudWatch se abrirá:  
@@ -334,5 +334,10 @@ fields @timestamp, @message
 
 Com grandes poderes, grandes responsabilidades...  
 
+### Leitura adicional:  
+[https://docs.aws.amazon.com/waf/latest/developerguide](https://docs.aws.amazon.com/waf/latest/developerguide) 
+[https://aws.amazon.com/waf/features/](https://aws.amazon.com/waf/features/) 
+[https://aws.amazon.com/waf/pricing/](https://aws.amazon.com/waf/pricing/) 
+[https://aws.amazon.com/waf/faqs/](https://aws.amazon.com/waf/faqs/) 
 
 
