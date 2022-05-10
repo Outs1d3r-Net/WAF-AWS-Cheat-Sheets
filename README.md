@@ -365,7 +365,7 @@ O Cloudwatch permite criar Dashboards para que seja possivel criar varios painei
 [![Console Cloudwatch](img/Dashboard.png#center)]()  
 #  
 
-#### Estero que este pequeno guia ajude as pessoas a desenvolverem suas tecnicas de consulta no WAF da AWS (WAF & SHIELD) por favor fique a vontade para me ajudar a alimentar este repositorio, acredito que podemos aprender muitas coisas juntos.
+#### Espero que este pequeno guia ajude as pessoas a desenvolverem suas técnicas de consulta no WAF da AWS (WAF & SHIELD) por favor fique a vontade para me ajudar a alimentar este repositório, acredito que podemos aprender muitas coisas juntos.
 
 Com grandes poderes, grandes responsabilidades...  
 
