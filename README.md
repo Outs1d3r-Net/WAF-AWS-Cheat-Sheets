@@ -361,6 +361,7 @@ Veja a imagem abaixo:
 #  
 + ### DashBoards:  
 O Cloudwatch permite criar Dashboards para que seja possivel criar varios paineis que possibilitam ter a visualização de mais de uma query e melhorar o monitoramento:  
+#  
 [![Console Cloudwatch](img/Dashboard.png#center)]()  
 #  
 
