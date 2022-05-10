@@ -343,6 +343,26 @@ fields @timestamp, @message
 | filter UA like /Safari/
 | limit 10
 ```  
+#
++ ### TOP 10 UAs:  
+Com esta query conseguimos obter um TOP 10 dos User-Agents que estão acessando nosso site:  
+```
+fields @timestamp, @message
+| parse @message '{"name":"user-agent","value":"*"}' as UA
+| filter @message like /UA/
+| parse @message '{"name":"Locale","value":"*"}' as Locale
+| stats count(*) as requestCount by httpRequest.clientIP, UA, Locale
+| sort requestCount desc
+| limit 10
+```  
+Veja a imagem abaixo:  
+# 
+[![Console Cloudwatch](img/08.png#center)]()  
+#  
++ ### DashBoards:  
+O Cloudwatch permite criar Dashboards para que seja possivel criar varios paineis que possibilitam ter a visualização de mais de uma query e melhorar o monitoramento:  
+[![Console Cloudwatch](img/Dashboard.png#center)]()  
+#  
 
 #### Estero que este pequeno guia ajude as pessoas a desenvolverem suas tecnicas de consulta no WAF da AWS (WAF & SHIELD) por favor fique a vontade para me ajudar a alimentar este repositorio, acredito que podemos aprender muitas coisas juntos.
 
