@@ -267,6 +267,7 @@ OBS: Diminuimos o tempo de consulta para 5 minutos para obter uma melhor visuali
 ## Templates de consultas  
 Nesta sessão vou disponibilizar alguns modelos de consultas, algumas que eu mesmo ja utilizei ou utilizo.  
 Sempre procurarei atualiza-los com o tempo.  
+Você poderá encontrar outros exemplos de consulta [aqui.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html)    
 #  
 
 + ### TOP 10 IP's:  
