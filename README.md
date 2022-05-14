@@ -9,8 +9,10 @@ Este guia foi desenvolvido para ser um guia rápido para iniciantes no WAF da AW
 
 Ele contem informações para você criar filtros e ter visibilidade do trafego da WEB que chega ate os seus sistemas que passam pelo WAF & Shield.  
 
-Você encontrará um guia técnico do recurso [aqui.](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html)  
+Você encontrará um guia técnico do recurso [aqui.](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html)    
 #  
+Aqui está um guia detalhado para as sintaxe das querys [aqui.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html)  
+#
 #### O WaF da AWS  
 O WaF da AWS conta com algumas funções de pesquisa quando analisado pelo cloudwatch, acesse o Cloudwatch na AWS e selecione: ```Logs Insights``` no canto esquerdo:  
 #  
