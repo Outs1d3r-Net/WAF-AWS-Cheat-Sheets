@@ -234,6 +234,17 @@ fields @timestamp, @message
 | sort requestCount desc
 ```  
 #  
++ ### concat:  
+O operador ```concat()``` é utilizado para concatenar dois campos, poderoso quando utilizado com o operador ```fields```:  
+```
+fields @timestamp, @message
+| parse @message '{"name":"user-agent","value":"*"}' as UA1
+| parse @message '{"name":"User-Agent","value":"*"}' as UA2
+| fields concat(UA1, UA2) as UA
+| display UA
+| sort @timestamp desc
+```  
+#  
 + ### limit:  
 O operador ```limit``` é utilizado para controlar o limite de dados de saida, dessa forma conseguimos controlar a quantidade de resultados na visualização.  
 
@@ -339,7 +350,9 @@ Este é a versão do protocolo que esta sendo invocado.
 + ### Encontrando UA's especificos:  
 ```
 fields @timestamp, @message
-| parse @message '{"name":"user-agent","value":"*"}' as UA
+| parse @message '{"name":"user-agent","value":"*"}' as UA1
+| parse @message '{"name":"User-Agent","value":"*"}' as UA2
+| fields concat(UA1, UA2) as UA
 | filter UA like /Mozilla/
 | filter UA like /Windows NT/
 | filter UA like /100.2.4453.127/
@@ -351,7 +364,9 @@ fields @timestamp, @message
 Com esta query conseguimos obter um TOP 10 dos User-Agents que estão acessando nosso site:  
 ```
 fields @timestamp, @message
-| parse @message '{"name":"user-agent","value":"*"}' as UA
+| parse @message '{"name":"user-agent","value":"*"}' as UA1
+| parse @message '{"name":"User-Agent","value":"*"}' as UA2
+| fields concat(UA1, UA2) as UA
 | filter @message like /UA/
 | parse @message '{"name":"Locale","value":"*"}' as Locale
 | stats count(*) as requestCount by httpRequest.clientIP, UA, Locale
@@ -362,6 +377,40 @@ Veja a imagem abaixo:
 # 
 [![Console Cloudwatch](img/08.png#center)]()  
 #  
++ ### Solicitações GET:  
+Com esta query conseguimos obter um TOP 10 dos User-Agents que estão acessando nosso site:  
+```
+fields @timestamp, @message
+| sort @timestamp desc
+| parse @message '{"name":"user-agent","value":"*"}' as UA1
+| parse @message '{"name":"User-Agent","value":"*"}' as UA2
+| fields concat(UA1, UA2) as UA
+| parse @message '{"name":"Host","value":"*"}' as Host1
+| parse @message '{"name":"host","value":"*"}' as Host2
+| fields concat(Host1, Host2) as Host
+| parse @message '{"name":"cookie","value":"*"}' as cookie
+| filter httpRequest.httpMethod="GET"
+| display httpRequest.clientIp, UA, httpRequest.country, httpRequest.httpMethod, Host, httpRequest.uri, httpRequest.args, httpRequest.httpVersion, cookie
+| limit 1000
+```  
+#   
++ ### Solicitações POST:  
+Com esta query conseguimos obter um TOP 10 dos User-Agents que estão acessando nosso site:  
+```
+fields @timestamp, @message
+| sort @timestamp desc
+| parse @message '{"name":"user-agent","value":"*"}' as UA1
+| parse @message '{"name":"User-Agent","value":"*"}' as UA2
+| fields concat(UA1, UA2) as UA
+| parse @message '{"name":"Host","value":"*"}' as Host1
+| parse @message '{"name":"host","value":"*"}' as Host2
+| fields concat(Host1, Host2) as Host
+| parse @message '{"name":"cookie","value":"*"}' as cookie
+| filter httpRequest.httpMethod="POST"
+| display httpRequest.clientIp, UA, httpRequest.country, httpRequest.httpMethod, Host, httpRequest.uri, httpRequest.args, httpRequest.httpVersion, cookie
+| limit 1000
+```  
+# 
 + ### DashBoards:  
 O Cloudwatch permite criar Dashboards para que seja possivel criar varios paineis que possibilitam ter a visualização de mais de uma query e melhorar o monitoramento:  
 #  
