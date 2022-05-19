@@ -378,7 +378,7 @@ Veja a imagem abaixo:
 [![Console Cloudwatch](img/08.png#center)]()  
 #  
 + ### Solicitações GET:  
-Com esta query conseguimos obter um TOP 10 dos User-Agents que estão acessando nosso site:  
+Com esta query conseguimos obter as solicitações GET:  
 ```
 fields @timestamp, @message
 | sort @timestamp desc
@@ -395,7 +395,7 @@ fields @timestamp, @message
 ```  
 #   
 + ### Solicitações POST:  
-Com esta query conseguimos obter um TOP 10 dos User-Agents que estão acessando nosso site:  
+Com esta query conseguimos obter as solicitações POST:  
 ```
 fields @timestamp, @message
 | sort @timestamp desc
@@ -409,6 +409,22 @@ fields @timestamp, @message
 | filter httpRequest.httpMethod="POST"
 | display httpRequest.clientIp, UA, httpRequest.country, httpRequest.httpMethod, Host, httpRequest.uri, httpRequest.args, httpRequest.httpVersion, cookie
 | limit 1000
+```  
+# 
++ ### Detectando ataques conhecidos:  
+Com esta query conseguimos detectar ataques da web conhecidos:  
+```
+fields @timestamp, @message
+| parse @message '{"name":"Host","value":"*"}' as Host1
+| parse @message '{"name":"host","value":"*"}' as Host2
+| parse @message '{"name":"user-agent","value":"*"}' as UA1
+| parse @message '{"name":"User-Agent","value":"*"}' as UA2
+| fields concat(Host1, Host2) as Host
+| fields concat(UA1, UA2) as UA
+| fields concat(httpRequest.uri, httpRequest.args, UA) as payload
+| filter payload like /(?i)(fileno|script>|Fuzz\sFaster|>alert|<!ENTITY|\/etc\/passwd|\/etc|SELECT%20|cat%20|ls%20|%00|\s.\s.%2F|ls\s-la|OR\s1=1)/
+| display httpRequest.clientIp, Host, @log, @logStream, @message
+| sort @timestamp desc
 ```  
 # 
 + ### DashBoards:  
